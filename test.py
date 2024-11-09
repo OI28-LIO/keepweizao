@@ -3,7 +3,7 @@ import random
 def generate_run_stats(pace_min, pace_max, distance_min, distance_max):
     # 设置配速和路程的区间
     # pace_min, pace_max = 5, 7  # 配速区间（分钟/公里）
-    # distance_min, distance_max = 0.8, 1.2  # 路程区间（公里）
+    # distance_min, distance_max = 3, 5.2  # 路程区间（公里）
 
     # 随机生成配速和路程
     random_pace = random.uniform(pace_min, pace_max)
