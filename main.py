@@ -29,21 +29,21 @@ def create_window():
     root.title("Input Window")
 
     # 创建变量来保存输入框的内容
-    month_var = tk.StringVar()
-    num_suiji_var = tk.StringVar()
-    pace_min_var = tk.StringVar()
-    pace_max_var = tk.StringVar()
-    distance_min_var = tk.StringVar()
-    distance_max_var = tk.StringVar()
+    month11_var = tk.StringVar()
+    num_10suiji_var = tk.StringVar()
+    pace_7min_var = tk.StringVar()
+    pace_5max_var = tk.StringVar()
+    distance_3min_var = tk.StringVar()
+    distance_5max_var = tk.StringVar()
 
     # 创建输入框
     entries = [
-        (tk.Entry(root, textvariable=month_var), "月份，输入整数"),
-        (tk.Entry(root, textvariable=num_suiji_var), "次数，输入整数,2月次数不超28,其余月份次数不超过30或31"),
-        (tk.Entry(root, textvariable=pace_min_var), "配速最小值，输入整数（分钟/公里）"),
-        (tk.Entry(root, textvariable=pace_max_var), "配速最大值，输入整数（分钟/公里）"),
-        (tk.Entry(root, textvariable=distance_min_var), "路程最小值，输入整数（公里）"),
-        (tk.Entry(root, textvariable=distance_max_var), "路程最大值，输入整数（公里）")
+        (tk.Entry(root, textvariable=month11_var), "月份，输入整数"),
+        (tk.Entry(root, textvariable=num_10suiji_var), "次数，输入整数,2月次数不超28,其余月份次数不超过30或31"),
+        (tk.Entry(root, textvariable=pace7_min_var), "配速最小值，输入整数（分钟/公里）"),
+        (tk.Entry(root, textvariable=pace5_max_var), "配速最大值，输入整数（分钟/公里）"),
+        (tk.Entry(root, textvariable=distance3_min_var), "路程最小值，输入整数（公里）"),
+        (tk.Entry(root, textvariable=distance_5max_var), "路程最大值，输入整数（公里）")
     ]
 
     # 布局输入框
@@ -64,7 +64,7 @@ def create_window():
 
 
 def main(month, num_suiji, pace_min, pace_max, distance_min, distance_max):
-    os.makedirs('3月')
+    os.makedirs('11月')
     # 生成1到28之间的15个不重复的随机数
     if month == "2":
         random_numbers = random.sample(range(1, 29), int(num_suiji))
@@ -83,7 +83,7 @@ def main(month, num_suiji, pace_min, pace_max, distance_min, distance_max):
         distance_get = str(distance)[:4]
         time1 = test.convert_pace_to_time_format(time)
         time_get = time1
-        random_time = test.generate_random_time_between_22_and_23()
+        random_time = test.generate_random_time_between_18_and_20()
 
         img = Image.open('back.jpg')
         draw = ImageDraw.Draw(img)
@@ -106,11 +106,11 @@ def main(month, num_suiji, pace_min, pace_max, distance_min, distance_max):
         font = ImageFont.truetype('msyh.ttc', size=36)
         draw.rectangle((938, 209, 1030, 238), fill='white')
         draw.text((938, 209), text4, font=font, fill=(152, 152, 152))
-        img.save('./3月/{}.jpg'.format(i))
+        img.save('./11月/{}.jpg'.format(i))
 
     # 设置图片所在的文件夹路径
-    image_dir = '3月'  # 替换为你的图片文件夹路径
-    shutil.copyfile('100.jpg', '3月/100.jpg')
+    image_dir = '11月'  # 替换为你的图片文件夹路径
+    shutil.copyfile('100.jpg', '11月/100.jpg')
     # 获取文件夹中所有的图片文件名
     image_files = [f for f in os.listdir(image_dir) if f.endswith('.jpg')]
 
